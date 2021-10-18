@@ -1,6 +1,6 @@
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
-
+from SVM import *
 def load_data():
     data = load_breast_cancer()
     return train_test_split(data.data, data.target, test_size=0.33, random_state=42)
@@ -16,3 +16,8 @@ if __name__ == '__main__':
           '\n3. SVM')
     cat = int(input())
 
+    if cat == 3:
+        clf = Svm(x_train, y_train, x_test, y_test)
+        print('input kernel: ')
+        kernel = input()
+        test_acc = clf.svm_classifier(kernel=kernel)
