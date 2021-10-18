@@ -23,6 +23,6 @@ class EnsembleAndDTClassifiers():
 
     def decision_tree(self):
         model = DecisionTreeClassifier()
-        model.fit(self.x_test, self.y_test)
+        model.fit(self.x_train, self.y_train)
         pred = model.predict(self.x_test)
         return accuracy_score(self.y_test, pred)
