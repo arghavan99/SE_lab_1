@@ -2,6 +2,8 @@ from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 from LinearModel import *
 from Ensembles import *
+from SVM import *
+
 
 def load_data():
     data = load_breast_cancer()
@@ -52,3 +54,9 @@ if __name__ == '__main__':
 
         if num == 3:
             test_acc = clf.decision_tree()
+
+    if cat == 3:
+        clf = Svm(x_train, y_train, x_test, y_test)
+        print('input kernel: ')
+        kernel = input()
+        test_acc = clf.svm_classifier(kernel=kernel)
