@@ -9,3 +9,10 @@ def load_data():
 if __name__ == '__main__':
 
     x_train, x_test, y_train, y_test = load_data()
+    print('Welcome to BreastCancerClassifier application! '
+          '\nPlease choose your desired model category and enter a number:'
+          '\n1. LinearModel'
+          '\n2. EnsembleModels and DecisionTrees'
+          '\n3. SVM')
+    cat = int(input())
+
