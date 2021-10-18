@@ -1,6 +1,7 @@
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 from LinearModel import *
+from Ensembles import *
 
 def load_data():
     data = load_breast_cancer()
@@ -32,3 +33,22 @@ if __name__ == '__main__':
             penalty = input()
             test_acc = clf.logistic_regression(penalty)
 
+    if cat == 2:
+        clf = EnsembleAndDTClassifiers(x_train, y_train, x_test, y_test)
+        print('choose among available ensemble models below:'
+              '\n1. Random Forest'
+              '\n2. Adaboost'
+              '\n3. Decision Tree')
+        num = int(input())
+        if num == 1:
+            print('input number of estimators:')
+            n_estimators = int(input())
+            test_acc = clf.random_forest(n_estimators=n_estimators)
+
+        if num == 2:
+            print('input number of estimators:')
+            n_estimators = int(input())
+            test_acc = clf.adaboost(n_estimators=n_estimators)
+
+        if num == 3:
+            test_acc = clf.decision_tree()
