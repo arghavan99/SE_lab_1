@@ -14,3 +14,9 @@ class EnsembleAndDTClassifiers():
         model.fit(self.x_train, self.y_train)
         pred = model.predict(self.x_test)
         return accuracy_score(self.y_test, pred)
+
+    def adaboost(self, n_estimators=50):
+        model = ensemble.AdaBoostClassifier(n_estimators=n_estimators)
+        model.fit(self.x_train, self.y_train)
+        pred = model.predict(self.x_test)
+        return accuracy_score(self.y_test, pred)
