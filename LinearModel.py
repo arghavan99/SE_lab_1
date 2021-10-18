@@ -14,3 +14,9 @@ class LinearClassifiers():
         model.fit(self.x_train, self.y_train)
         pred = model.predict(self.x_test)
         return accuracy_score(self.y_test, pred)
+
+    def logistic_regression(self, penalty='l2'):
+        model = linear_model.LogisticRegression(random_state=0, penalty=penalty)
+        model.fit(self.x_train, self.y_train)
+        pred = model.predict(self.x_test)
+        return accuracy_score(self.y_test, pred)
