@@ -19,9 +19,12 @@ if __name__ == '__main__':
     if cat == 2:
         clf = EnsembleAndDTClassifiers(x_train, y_train, x_test, y_test)
         print('choose among available ensemble models below:'
-              '\n1. Random Forest')
+              '\n1. Random Forest'
+              '\n2. Decision Tree')
         num = int(input())
         if num == 1:
             print('input number of estimators:')
             n_estimators = int(input())
             test_acc = clf.random_forest(n_estimators=n_estimators)
+        if num == 2:
+            test_acc = clf.decision_tree()
